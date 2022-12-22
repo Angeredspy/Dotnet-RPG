@@ -10,6 +10,11 @@ namespace DotNet_RPG.Controllers
     [Route("api/[controller]")] 
     public class CharacterController : ControllerBase
     {
-        
+      private static Character swordsman = new Character(); 
+      [HttpGet]
+      public ActionResult<Character> Get() 
+      {
+        return Ok(swordsman);
+      }
     }
 }
