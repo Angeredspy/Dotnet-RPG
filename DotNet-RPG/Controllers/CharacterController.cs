@@ -14,7 +14,7 @@ namespace DotNet_RPG.Controllers
         new Character(),
         new Character {Name = "Zenitsu"}
       }; 
-      [HttpGet]
+      [HttpGet("GetAll")] //The ("GetAll") specifies an additional specific route to the method below in particular.
       public ActionResult<List<Character>> Get() 
       {
         return Ok(characters);
