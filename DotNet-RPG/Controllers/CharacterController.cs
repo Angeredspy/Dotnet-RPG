@@ -12,17 +12,17 @@ namespace DotNet_RPG.Controllers
     {
       private static List<Character> characters = new List<Character> {
         new Character(),
-        new Character {Name = "Zenitsu"}
+        new Character {Id = 1, Name = "Zenitsu"}
       }; 
       [HttpGet("GetAll")] //The ("GetAll") specifies an additional specific route to the method below in particular.
       public ActionResult<List<Character>> Get() 
       {
         return Ok(characters);
       }
-      [HttpGet]
-      public ActionResult<Character> GetSingleCharacter()
+      [HttpGet("{id}")]
+      public ActionResult<Character> GetSingleCharacter(int id)
       {
-        return Ok(characters[0]);
+        return Ok(characters.FirstOrDefault(c => c.Id == id));
       }
     }
 }
