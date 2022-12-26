@@ -58,13 +58,14 @@ namespace DotNet_RPG.Services.CharacterService
                 character.Class = updatedCharacter.Class;
 
                 serviceResponse.Data = _mapper.Map<GetCharacterDTO>(character);
-                return serviceResponse;
+
             }
             catch (Exception ex)
             {
                 serviceResponse.Success = false;
                 serviceResponse.Message = ex.Message;
             }
+            return serviceResponse;
         }
     }
 }
