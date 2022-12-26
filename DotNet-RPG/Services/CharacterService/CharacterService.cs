@@ -49,6 +49,8 @@ namespace DotNet_RPG.Services.CharacterService
             try 
             {
                 var character = characters.FirstOrDefault(c => c.Id == updatedCharacter.Id);
+                if (character is null)
+                    throw new Exception($"Character with Id {updatedCharacter.Id} does not exist");
 
                 character.Name = updatedCharacter.Name;
                 character.HitPoints = updatedCharacter.HitPoints;
